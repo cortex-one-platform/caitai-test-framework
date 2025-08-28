@@ -8,16 +8,15 @@
   "bin": {
     "security-test": "./bin/security-test.js"
   },
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "test:security": "vitest run src/security/ --reporter=verbose",
-    "build": "node scripts/build.js",
-    "prepublishOnly": "npm run test && npm run build"
-  },
+  "files": [
+    "src/",
+    "bin/",
+    "examples/",
+    "templates/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE.md"
+  ],
   "keywords": [
     "testing",
     "security",
@@ -37,6 +36,7 @@
     "cortex"
   ],
   "author": "Willesclusa <therealwillesclusa@users.noreply.github.com>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/cortex-one-platform/caitai-test-framework.git"
@@ -63,11 +63,6 @@
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
     "vitest": ">=3.0.0"
-  },
-  "devDependencies": {
-    "@vitest/coverage-v8": "^3.2.4",
-    "@vitest/ui": "^3.2.4",
-    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=18.0.0",
