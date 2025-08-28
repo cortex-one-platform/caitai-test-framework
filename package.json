@@ -1,6 +1,6 @@
 {
   "name": "caitai-security-test-framework",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A comprehensive test framework with security testing, coverage reporting, and multiple test categories",
   "main": "src/index.js",
   "module": "src/index.js",
