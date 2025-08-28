@@ -1,0 +1,238 @@
+# Development and build files
+node_modules/
+coverage/
+.nyc_output/
+.cache/
+.temp/
+.tmp/
+dist/
+build/
+out/
+
+# Development configuration
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Test files and examples (keep only templates)
+src/examples/
+src/templates/*.test.js
+src/templates/*.test.jsx
+src/templates/*.spec.js
+src/templates/*.spec.jsx
+tests/
+__tests__/
+*.test.js
+*.test.jsx
+*.spec.js
+*.spec.jsx
+
+# Generated reports and output
+reports/
+*.html
+*.json
+*.txt
+
+# Documentation (keep only essential)
+docs/
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE.md
+# Configuration files (keep only essential)
+.eslintrc*
+.prettierrc*
+.editorconfig
+.gitignore
+.gitattributes
+.babelrc*
+tsconfig.json
+jest.config.*
+vitest.config.*
+cypress.config.*
+playwright.config.*
+webpack.config.*
+rollup.config.*
+vite.config.*
+next.config.*
+nuxt.config.*
+tailwind.config.*
+postcss.config.*
+babel.config.*
+metro.config.*
+expo.config.*
+app.json
+app.config.*
+capacitor.config.*
+electron-builder.json
+electron-builder.yml
+
+# CI/CD files
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+azure-pipelines.yml
+Jenkinsfile
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Deployment files
+vercel.json
+netlify.toml
+firebase.json
+.firebaserc
+serverless.yml
+.tfstate
+.terraform/
+
+# Monitoring and analytics
+.sentryclirc
+.bugsnagrc
+
+# Local development
+.local/
+.localhost/
+localhost/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Compiled binary addons
+build/Release
+
+# TypeScript declaration files (if not needed)
+*.d.ts
+!src/**/*.d.ts
+
+# Source maps (if not needed)
+*.map
+
+# Package lock files (keep only one)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Development scripts
+scripts/
+tools/
+bin/dev-*
+bin/build-*
+bin/test-*
+
+# Development utilities
+.eslintignore
+.prettierignore
+.stylelintrc*
+.stylelintignore
+
+# Local configuration
+.localrc
+.localrc.*
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache directories
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.gatsby/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Keep only essential files for the package
+# Include: src/, bin/, package.json, README.md, LICENSE.md
+# Exclude: everything else
+

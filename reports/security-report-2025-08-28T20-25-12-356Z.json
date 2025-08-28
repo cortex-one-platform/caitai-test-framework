@@ -1,0 +1,16 @@
+{
+  "type": "security",
+  "timestamp": "2025-08-28T20:25:12.356Z",
+  "summary": {
+    "totalTests": 0,
+    "passed": 0,
+    "failed": 0,
+    "vulnerabilities": 0
+  },
+  "details": [],
+  "recommendations": [],
+  "metadata": {
+    "framework": "security-test-framework",
+    "version": "1.0.0"
+  }
+}
