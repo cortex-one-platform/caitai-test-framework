@@ -32,6 +32,19 @@ jobs:
           echo "WORKFLOW_REF=$GITHUB_WORKFLOW_REF" # includes .github/workflows/<your-file>
           echo "WORKFLOW=$GITHUB_WORKFLOW"         # friendly name
 
+      - name: Verify token can publish (throwaway)
+        run: |
+          set -euxo pipefail
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          tmpdir=$(mktemp -d)
+          cd "$tmpdir"
+          npm init -y
+          npm pkg set name="willesclusa-publish-repro-$(date +%s)" version="1.0.0"
+          echo 'module.exports={}' > index.js
+          npm publish --access public --tag test
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Auth to npm
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
