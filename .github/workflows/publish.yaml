@@ -21,7 +21,14 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install
-        run: npm ci --ignore-scripts
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "Using npm ci";
+            npm ci --ignore-scripts;
+          else
+            echo "No package-lock.json found; using npm install";
+            npm install --ignore-scripts;
+          fi
 
       - name: Build
         run: npm run build --if-present
