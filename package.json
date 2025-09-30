@@ -5,6 +5,10 @@
   "main": "src/index.js",
   "license": "MIT",
   "author": "Willesclusa <therealwillesclusa@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cortex-one-platform/caitai-test-framework.git"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
