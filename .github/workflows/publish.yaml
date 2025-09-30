@@ -64,9 +64,9 @@ jobs:
             exit 1
           fi
           echo "✅ NPM_TOKEN is set"
-          # Show only a masked prefix of the token for debugging
-          prefix=${NPM_TOKEN:0:4}
-          echo "Token prefix (masked): ${prefix}****"
+          # Show only a masked suffix of the token for debugging
+          suffix=${NPM_TOKEN: -4}
+          echo "Token suffix (masked): ****${suffix}"
           echo "Userconfig path: $NPM_CONFIG_USERCONFIG"
           echo "---- .npmrc preview ----"
           head -n 10 "$NPM_CONFIG_USERCONFIG" || true
