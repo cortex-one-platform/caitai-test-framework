@@ -62,7 +62,6 @@ jobs:
           npm config get userconfig
           head -n 10 "$(npm config get userconfig)"
           npm ping --registry=https://registry.npmjs.org/ --loglevel=notice
-          npm whoami --userconfig "$NPM_CONFIG_USERCONFIG" --registry=https://registry.npmjs.org/
 
       - name: Publish (provenance)
-        run: npm publish --access public --tag latest --provenance
+        run: npm publish --access public --tag latest --provenance --userconfig "$NPM_CONFIG_USERCONFIG"
