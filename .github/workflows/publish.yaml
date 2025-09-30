@@ -26,6 +26,12 @@ jobs:
       - name: Build
         run: npm run build --if-present
 
+      - name: Show GH context
+        run: |
+          echo "REPO=$GITHUB_REPOSITORY"           # should be cortex-one-platform/caitai-test-framework
+          echo "WORKFLOW_REF=$GITHUB_WORKFLOW_REF" # includes .github/workflows/<your-file>
+          echo "WORKFLOW=$GITHUB_WORKFLOW"         # friendly name
+
       - name: Auth to npm
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
