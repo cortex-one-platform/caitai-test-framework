@@ -35,7 +35,8 @@ jobs:
       - name: Verify token can publish (throwaway)
         run: |
           set -euxo pipefail
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" > "$NPM_CONFIG_USERCONFIG"
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> "$NPM_CONFIG_USERCONFIG"
           tmpdir=$(mktemp -d)
           cd "$tmpdir"
           npm init -y
@@ -47,9 +48,16 @@ jobs:
 
       - name: Auth to npm
         run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" > "$NPM_CONFIG_USERCONFIG"
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> "$NPM_CONFIG_USERCONFIG"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}  # add in repo settings
+
+      - name: Sanity whoami
+        run: |
+          npm whoami
+          npm config get userconfig
+          head -n 5 "$(npm config get userconfig)"
 
       - name: Publish (provenance)
         run: npm publish --access public --tag latest --provenance
