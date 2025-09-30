@@ -48,17 +48,21 @@ jobs:
             echo "NPM_TOKEN is not set. Add it in GitHub → Settings → Secrets and variables → Actions." >&2
             exit 1
           fi
-          unset NODE_AUTH_TOKEN
           echo "Using npm userconfig: ${NPM_CONFIG_USERCONFIG}"
-          echo "registry=https://registry.npmjs.org/" > "$NPM_CONFIG_USERCONFIG"
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> "$NPM_CONFIG_USERCONFIG"
+          # Ensure registry & always-auth
+          printf "registry=https://registry.npmjs.org/\n" > "$NPM_CONFIG_USERCONFIG"
+          printf "always-auth=true\n" >> "$NPM_CONFIG_USERCONFIG"
+          # Write token via npm config to the SAME userconfig path
+          npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}" --userconfig "$NPM_CONFIG_USERCONFIG"
+          # Show which config is in use
           npm config get userconfig
 
       - name: Sanity whoami
         run: |
           npm config get userconfig
-          head -n 5 "$(npm config get userconfig)"
-          npm whoami --userconfig "$NPM_CONFIG_USERCONFIG"
+          head -n 10 "$(npm config get userconfig)"
+          npm ping --registry=https://registry.npmjs.org/ --loglevel=notice
+          npm whoami --userconfig "$NPM_CONFIG_USERCONFIG" --registry=https://registry.npmjs.org/
 
       - name: Publish (provenance)
         run: npm publish --access public --tag latest --provenance
