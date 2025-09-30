@@ -57,6 +57,21 @@ jobs:
           # Show which config is in use
           npm config get userconfig
 
+      - name: Debug npm token
+        run: |
+          if [ -z "${NPM_TOKEN:-}" ]; then
+            echo "❌ NPM_TOKEN is NOT set" >&2
+            exit 1
+          fi
+          echo "✅ NPM_TOKEN is set"
+          # Show only a masked prefix of the token for debugging
+          prefix=${NPM_TOKEN:0:4}
+          echo "Token prefix (masked): ${prefix}****"
+          echo "Userconfig path: $NPM_CONFIG_USERCONFIG"
+          echo "---- .npmrc preview ----"
+          head -n 10 "$NPM_CONFIG_USERCONFIG" || true
+          echo "------------------------"
+
       - name: Sanity whoami
         run: |
           npm config get userconfig
