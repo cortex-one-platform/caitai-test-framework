@@ -1,0 +1,36 @@
+name: Publish to npm with provenance
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'  # tag like v1.0.5
+
+permissions:
+  id-token: write   # required for provenance
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install
+        run: npm ci --ignore-scripts
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Auth to npm
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}  # add in repo settings
+
+      - name: Publish (provenance)
+        run: npm publish --access public --tag latest --provenance
