@@ -39,7 +39,7 @@ jobs:
           tmpdir=$(mktemp -d)
           cd "$tmpdir"
           npm init -y
-          npm pkg set name="willesclusa-publish-repro-$(date +%s)" version="1.0.0"
+          npm pkg set name="@therealwillesclusa/repro-$(date +%s)" version="1.0.0"
           echo 'module.exports={}' > index.js
           npm publish --access public --tag test
         env:
