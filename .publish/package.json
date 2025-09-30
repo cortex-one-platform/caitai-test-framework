@@ -1,18 +1,12 @@
 {
   "name": "caitai-security-test-framework",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "description": "A comprehensive test framework with security testing, coverage reporting, and multiple test categories",
-  "main": "src/index.js",
   "license": "MIT",
   "author": "Willesclusa <therealwillesclusa@users.noreply.github.com>",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
+  "main": "index.js",
   "files": [
-    "src/",
-    "bin/",
-    "README.md",
-    "LICENSE"
+    "**/*",
+    "!node_modules"
   ]
 }
